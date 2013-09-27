@@ -1,0 +1,19 @@
+ve.next():$('#slideshow IMG:first');$active.addClass('last-active');$next.css({opacity:0.0}).addClass('active').animate({opacity:1.0},1000,function(){$active.removeClass('active last-active');});}
+$(function(){setInterval("slideSwitch()",5000);});</script>
+<style type="text/css">#slideshow{position:relative;height:350px}#slideshow IMG{position:absolute;top:0;left:0;z-index:8;opacity:0}#slideshow IMG.active{z-index:10;opacity:1}#slideshow IMG.last-active{z-index:9}#slideshow .overlay{z-index:11;position:absolute}</style>
+</head>
+<body>
+<div class="container-narrow">
+<div class="row" style="padding-bottom:40px;">
+<div class="span9">
+<h2>School for Poetic Computation</h2>
+</div>
+<ul class="span6 nav nav-pills pull-left">
+<li><a href="../index.html">Home</a></li>
+<li><a href="../about">About</a></li>
+<li><a href="../mission">Mission</a></li>
+<li><a href="../students">Students</a></li>
+<li><a href="../faq">FAQ</a></li>
+<li><a href="http://blog.sfpc.io" target="_blank" rel="external">Blog&nbsp; ></a></li>
+</ul>
+</d
