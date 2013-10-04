@@ -1,0 +1,26 @@
+
+
+
+startshape line
+import i_curves.cfdg
+
+
+shape square
+{ 
+	SQUARE [x 5] 
+}
+shape triangle
+{ 
+	   curveleft_0_98_1 [x -2 s 0.2]
+	CIRCLE [ x -1.5 y 0.0 s 1.0 ]
+	CIRCLE [ x 1.45 y 0.6 s 0.9 ]
+	CIRCLE [ x -1.4 y 1.2 s 0.8 ]
+	CIRCLE [ x 1.35 y 1.8 s 0.7 ]
+	CIRCLE [ x -1.3 y 2.4 s 0.6 ]
+}
+
+shape line
+{
+	loop 8 [r 45] square[]
+	loop 54 [r 15] triangle[]
+}
