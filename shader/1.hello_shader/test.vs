@@ -1,7 +1,7 @@
 uniform float time; // ellapsed time
 
-const float power = 1.0;
-const float div = 1.4;
+const float power = 1.2;
+const float div = 3.4;
 const float speed = 2.0;
 
 void main()
