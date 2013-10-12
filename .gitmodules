@@ -1,0 +1,6 @@
+[submodule "OF-image_cv/sample_from_zach"]
+	path = OF-image_cv/sample_from_zach
+	url = git@github.com:ofZach/sfpc_image_cv.git
+[submodule "OF-addons/myBaseApp"]
+	path = OF-addons/myBaseApp
+	url = git@github.com:motoishmz/myBaseApp.git
