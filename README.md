@@ -5,3 +5,5 @@
 - **SFPC_Logo**: 3 min glitching
 - **ShaderBuilder**: OpenGL Shader Builder experiment
 - **languages-test**: experiments using unfamiliar language
+
+(Clone this repository to your `OF root directory` to run OF project)
