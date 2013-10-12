@@ -1,7 +1,7 @@
 
-FILE_ORIGINAL=../@assets/split_test/1_original_sfpc.html
-FILE_SPLITED=../@assets/split_test/2_splited_sfpc. # extention will be added automatically
-FILE_JOINED=../@assets/split_test/3_joind_sfpc.html
+FILE_ORIGINAL=./assets/split_test/1_original_sfpc.html
+FILE_SPLITED=./assets/split_test/2_splited_sfpc. # extention will be added automatically
+FILE_JOINED=./assets/split_test/3_joind_sfpc.html
 
 
 # split sfpc.html into 1kb files
@@ -38,5 +38,5 @@ if [ $SIZE_ORIGINAL -lt $SIZE_JOINED ] ; then
 elif [ $SIZE_ORIGINAL -gt $SIZE_JOINED ] ; then
  	print Original file is bigger
 else
-	print Same fileSize!
+	print same file size!
 fi

@@ -1,0 +1,33 @@
+<br/>
+E-mail: <input name="email" type="text"/><br/>
+<input type="submit" class="btn" name="submit" value="join"/>
+<input type="submit" class="btn" name="unsub" value="unsubscribe"/>
+</form>
+</div>
+<div class="span6">
+<h4>twitter</h4>
+<p>follow us: <a href="http://twitter.com/sfpc_school"> @sfpc_school</a></p>
+</div>
+</div>
+<div>
+<hr>
+<footer id="footer">
+<p class="pull-right">
+<a href="mailto:info@sfpc.io">
+<span class="label-success label" style="background:#DDD">
+<i class="icon-g-white icon-g-envelope"></i>
+&nbsp;&nbsp;info@sfpc.io
+</span>
+</a>
+<a href="http://twitter.com/sfpc_school">
+<span class="label-success label" style="background:#DDD">
+<i class="icon-g-white icon-g-twitter-t"></i>
+&nbsp;&nbsp;@sfpc_school
+</span>
+</a>
+</p>
+</footer>
+</div>
+</div>
+</body>
+</html>

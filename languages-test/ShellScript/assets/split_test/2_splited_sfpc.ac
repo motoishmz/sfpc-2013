@@ -1,0 +1,10 @@
+iv>
+<div class="clearfix">
+<div id="slideshow" style="width:700px;">
+<img src="http://sfpc.io/static/slides/xpushPixel.jpg.pagespeed.ic.fM0nMftbtG.jpg" alt="Slideshow Image 1" class="active"/>
+<img src="http://sfpc.io/static/slides/xcircuit.jpg.pagespeed.ic.5dyD9lNoLq.jpg" alt="Slideshow Image 3"/>
+<img src="http://sfpc.io/static/slides/xhappyParsons.jpg.pagespeed.ic.Qe2wUI64h2.jpg" alt="Slideshow Image 4"/>
+<img src="http://sfpc.io/static/slides/xcode.jpg.pagespeed.ic.7EmtcgnpSr.jpg" alt="Slideshow Image 5"/>
+<div class="overlay" style="display:block">
+<div class="pull-right" style="margin: 20px; padding: 10px; background-color: rgba(255,255,255,0.9); z-index: 100; max-width: 700px">
+<p class="lead"><b>school for poetic computation</b> is an artist run school launching this fall in New York. A small group of students and faculty will work closely to explore the intersections of code, design, hardware and theory -- focusing especially on artistic intervention. It's a 10 week program, a hybrid of residency and
