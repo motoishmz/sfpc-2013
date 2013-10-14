@@ -1,15 +1,6 @@
 #include "ofMain.h"
 #include "converter.h"
 
-
-/*
-	画像のcenterを求めるのをやめた。このファイルでは...
-	1. edgeを求める
-	2. edgeのerode/dilate functionを作る
-	3. gainの数だけloopする
- */
-
-
 class ofApp : public ofBaseApp
 {
 	
@@ -21,8 +12,9 @@ public:
 
 ofImage img_original;
 ofImage img_binary;
-ofImage img_contour;
-ofPoint center;
+ofPoint p;
+
+vector<ofPoint> edge_points;
 
 float width, height;
 string filename = "blob.png";
@@ -39,8 +31,8 @@ void ofApp::setup()
 	// generating binary image
 	img_binary = genBinaryImage(img_original, 0);
 	
-	// contour
-	img_contour = genContourImage(img_binary);
+	// search contour
+	edge_points = getContour(img_binary);
 	
 	// window resize
 	width = img_original.width;
@@ -59,10 +51,13 @@ void ofApp::draw()
 	ofSetColor(255);
 	img_original.draw(0, 0);
 	img_binary.draw(width, 0);
-	img_contour.draw(0, height);
 	
 	ofSetColor(255, 0, 0);
-	ofCircle(center, 10);
+	
+	for (int i=0; i<edge_points.size(); i++)
+	{
+		ofCircle(edge_points[i], 1);
+	}
 }
 
 
