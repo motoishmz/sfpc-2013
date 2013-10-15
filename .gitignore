@@ -1,3 +1,7 @@
+# ---------
+OF-GoogleVideo/assets/*
+# ---------
+
 # Some general ignore patterns
 build/
 obj/
