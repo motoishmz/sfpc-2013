@@ -1,0 +1,1 @@
+ffmpeg -i "../assets/IMG_5325.MOV" -f image2 -vcodec png "./frame-%04d.png"
