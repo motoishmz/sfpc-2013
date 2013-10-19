@@ -1,5 +1,5 @@
-require "net/http"
-require "uri"
+require 'net/http'
+require 'uri'
 
 k_test_file = "test.png"
 k_field_name = "encoded_image"

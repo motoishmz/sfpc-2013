@@ -1,6 +1,7 @@
 # ---------
-GoogleVideo/Test/@assets/*
-GoogleVideo/Test/scraping/downloads/*
+GoogleVideo/Assets/*
+GoogleVideo/Downloads/*
+GoogleVideo/Movies/*
 # ---------
 
 # Some general ignore patterns
