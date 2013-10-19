@@ -1,5 +1,4 @@
 
-
 # our config file
 require '../conf.rb' 
 
@@ -9,24 +8,9 @@ require 'RMagick'
 require 'FileUtils'
 require 'pp'
 
-# 1. 画像を合成
-# 2. 各フレームからmovieつくる
-# ffmpeg -r 30 -i assets/frames/frame-%4d.png -qscale 1 out.avi
-
 
 FileUtils::mkdir_p(PATH_MOVIE_TODAY_DIR) unless FileTest.exists?(PATH_MOVIE_TODAY_DIR)
 FileUtils::mkdir_p(PATH_MOVIE_FRAMES_DIR) unless FileTest.exists?(PATH_MOVIE_FRAMES_DIR)
-
-# frames.each_with_index{|frame, i|
-#   
-#   file_path = BASE_DIR+frame
-#   
-#   next if File.ftype(file_path) != "file"
-#   next if File.basename(file_path) == ".DS_Store"
-#   
-#   cur_index = i - 2  # -2 => '.', '..'
-# }
-
 
 original_files = Dir::entries(PATH_SRC_RESIZE_DIR)
 similar_files = Dir::entries(PATH_DL_FRAMED_DIR)
@@ -42,7 +26,6 @@ similar_files.delete(".DS_Store")
 
 pp "original_files: " + original_files.size.to_s
 pp "similar_files: " + similar_files.size.to_s
-
 
 
 original_files.each_with_index{|frame, i|
@@ -65,3 +48,8 @@ original_files.each_with_index{|frame, i|
   dst.write( PATH_MOVIE_FRAMES_DIR + fileName + "." + SRC_FRAME_EXTENTION );  
   p fileName + " saved."
 }
+
+
+# ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
+# new movie!
+# ffmpeg -r 30 -i assets/frames/frame-%4d.png -qscale 1 out.avi
