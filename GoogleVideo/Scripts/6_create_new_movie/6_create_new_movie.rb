@@ -13,7 +13,8 @@ require 'FileUtils'
 frame_rate = FINALIZE_FRAME_RATE.to_s
 input_files = PATH_MOVIE_FRAMES_DIR + 'frame-%04d.' + SRC_FRAME_EXTENTION
 output_file = PATH_MOVIE_NEW
-p command = '/usr/local/bin/ffmpeg -r '+ frame_rate + ' -i ' + input_files + ' -qscale 1 ' + output_file
+
+command = '/usr/local/bin/ffmpeg -r '+ frame_rate + ' -i ' + input_files + ' -qscale 1 ' + output_file
 
 FileUtils.rm(output_file) if File.exist?(output_file)
 
