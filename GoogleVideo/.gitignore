@@ -6,3 +6,4 @@
 *.png
 *.gif
 !notfound.jpg
+!test.png
