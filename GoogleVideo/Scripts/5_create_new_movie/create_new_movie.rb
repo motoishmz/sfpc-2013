@@ -18,11 +18,12 @@ similar_files = Dir::entries(PATH_DL_FRAMED_DIR)
 original_files.delete(".")
 original_files.delete("..")
 original_files.delete(".DS_Store")
+original_files.delete(".gitkeep")
 
 similar_files.delete(".")
 similar_files.delete("..")
 similar_files.delete(".DS_Store")
-
+similar_files.delete(".gitkeep")
 
 pp "original_files: " + original_files.size.to_s
 pp "similar_files: " + similar_files.size.to_s

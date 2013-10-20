@@ -1,8 +1,3 @@
-# ---------
-GoogleVideo/Assets/*
-GoogleVideo/Downloads/*
-GoogleVideo/Movies/*
-# ---------
 
 # Some general ignore patterns
 build/

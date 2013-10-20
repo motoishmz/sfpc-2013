@@ -43,7 +43,7 @@ frames.each_with_index{|frame, i|
   framed_file_path = PATH_DL_FRAMED_DIR+frame
   
   next if File.ftype(src_file_path) != "file"
-  next if File.basename(src_file_path) == ".DS_Store"
+  next if File.basename(src_file_path) =~ /^\./
   
   begin
     create_frame(src_file_path, FINALIZE_WIDTH, FINALIZE_HEIGHT, framed_file_path);

@@ -26,7 +26,7 @@ frames.each_with_index{|frame, i|
   dest_path = PATH_SRC_RESIZE_DIR + frame
   
   next if File.ftype(file_path) != "file"
-  next if File.basename(file_path) == ".DS_Store"
+  next if File.basename(file_path) =~ /^\./
   
   command = "/usr/local/bin/ffmpeg -i #{file_path} -vf scale=#{FINALIZE_WIDTH}:#{FINALIZE_HEIGHT} #{dest_path}"
   
