@@ -28,7 +28,6 @@ similar_files.delete(".gitkeep")
 pp "original_files: " + original_files.size.to_s
 pp "similar_files: " + similar_files.size.to_s
 
-
 original_files.each_with_index{|frame, i|
   
   fileName = "frame-" + format("%04d", i+1)
@@ -46,11 +45,7 @@ original_files.each_with_index{|frame, i|
   dst.composite!( image1, 0, 0, Magick::OverCompositeOp )
   dst.composite!( image2, FINALIZE_WIDTH, 0, Magick::OverCompositeOp )
   
-  dst.write( PATH_MOVIE_FRAMES_DIR + fileName + "." + SRC_FRAME_EXTENTION );  
+  dst.write( PATH_MOVIE_FRAMES_DIR + fileName + "." + SRC_FRAME_EXTENTION );
+  
   p fileName + " saved."
 }
-
-
-# ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
-# new movie!
-# ffmpeg -r 30 -i assets/frames/frame-%4d.png -qscale 1 out.avi
