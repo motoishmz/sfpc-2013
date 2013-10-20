@@ -5,3 +5,4 @@
 *.JPG
 *.png
 *.gif
+!notfound.jpg
