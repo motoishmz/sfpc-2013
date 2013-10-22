@@ -6,5 +6,7 @@
 *.JPG
 *.png
 *.gif
+Downloads/*
+!.gitkeep
 !notfound.jpg
 !test.png
