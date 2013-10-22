@@ -4,10 +4,14 @@ require '../conf.rb'
 require 'helpers.rb'
 
 # gems
-require 'fileutils'
-require 'open-uri'
-require 'resolv-replace'
-require 'timeout'
+require 'FileUtils'
+
+# ---
+# create result dir
+FileUtils::mkdir_p(PATH_BASE_DOWNLOADS + TODAY) unless FileTest.exists?(PATH_BASE_DOWNLOADS + TODAY)
+FileUtils::mkdir_p(PATH_DL_RAWFILES_DIR) unless FileTest.exists?(PATH_DL_RAWFILES_DIR)
+FileUtils::mkdir_p(PATH_DL_FRAMED_DIR) unless FileTest.exists?(PATH_DL_FRAMED_DIR)
+FileUtils::mkdir_p(PATH_DL_THUMBS_DIR) unless FileTest.exists?(PATH_DL_THUMBS_DIR)
 
 
 # ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
@@ -21,7 +25,7 @@ frames.each_with_index{|frame, i|
   
   file_path = PATH_SRC_RESIZE_DIR+frame
   
-  b_should_skip = ((File.ftype(file_path) != "file") || (File.basename(file_path) == ".DS_Store"))
+  b_should_skip = ((File.ftype(file_path) != "file") || (File.basename(file_path) =~ /^\./))
   
   if b_should_skip
     num_skip+=1
@@ -30,8 +34,7 @@ frames.each_with_index{|frame, i|
   
   cur_index = i - num_skip
   
-  p ''
-  p '-----'
+  p "･゜･*:.｡..:*･'｡. .｡.:*･゜･*"
   p "start processing: " + (cur_index+1).to_s + "/" + (frames.size-num_skip).to_s + ", "+ file_path
   p 'src: ' + file_path
   image_url = get_similar_image_uri(file_path)

@@ -1,6 +1,11 @@
 require 'net/http'
 require 'uri'
+require 'open-uri'
+require 'resolv-replace'
+require 'timeout'
 
+
+K_TIMEOUT = 10
 K_Google_Sbi = 'http://www.google.com.br/searchbyimage/upload'
 K_User_Agent = '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.94 Safari/537.4"'
 K_Field_Name = 'encoded_image'
@@ -44,17 +49,27 @@ def save_image(url, index)
   dest_file_name = "frame-" + format("%04d", index) + File.extname(url)
   dest_file_path = PATH_DL_RAWFILES_DIR + dest_file_name
   
-  p "start saving: " + url
+  p "start downloading: " + url
   
   begin
-    open(dest_file_path, 'wb') do |output|
-      open(url) do |data|
-        output.write(data.read)
+    timeout(TIMEOUT) do
+      open(dest_file_path, 'wb') do |output|
+        open(url) do |data|
+          output.write(data.read)
+        end
       end
     end
-  rescue => e
+  rescue TimeoutError => e
       p "timeout! saving " + PATH_SRC_NOTFOUND_IMG
-      
+    
+      open(dest_file_path, 'wb') do |output|
+        open(PATH_SRC_NOTFOUND_IMG) do |data|
+          output.write(data.read)
+        end
+      end
+  rescue => e
+      p "unknown error... saving " + PATH_SRC_NOTFOUND_IMG
+    
       open(dest_file_path, 'wb') do |output|
         open(PATH_SRC_NOTFOUND_IMG) do |data|
           output.write(data.read)

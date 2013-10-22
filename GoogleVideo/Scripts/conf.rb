@@ -18,6 +18,7 @@ PATH_BASE_MOVIES = "../../Movies/"
 PATH_SRC_FRAMES_DIR = PATH_BASE_ASSETS + "frames_original/"
 PATH_SRC_RESIZE_DIR = PATH_BASE_ASSETS + "frames_resized/"
 PATH_SRC_THUMBS_DIR = PATH_BASE_ASSETS + "thumbnails/"
+PATH_SRC_MOVIES_DIR = PATH_BASE_ASSETS + "movie_src/"
 PATH_SRC_NOTFOUND_IMG = PATH_BASE_ASSETS + "notfound.jpg"
 
 
@@ -25,7 +26,7 @@ PATH_SRC_NOTFOUND_IMG = PATH_BASE_ASSETS + "notfound.jpg"
 # ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
 TODAY = Time.now.year.to_s + "-" + Time.now.month.to_s + "-" + Time.now.day.to_s # yyyy-mm-dd
 SRC_FRAME_EXTENTION = 'png'
-SRC_MOVIE_FILE = PATH_BASE_ASSETS + "sfpc-20131018.MOV"
+SRC_MOVIE_FILE = PATH_SRC_MOVIES_DIR + "sfpc-20131018.MOV"
 
 
 # ---

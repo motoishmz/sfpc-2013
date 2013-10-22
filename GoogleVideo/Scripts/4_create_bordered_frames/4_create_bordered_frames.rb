@@ -12,8 +12,9 @@ require 'RMagick'
 
 def create_frame(src_path, w, h, dest_path)
   
+  p 'start creating frame: ' + src_path
   image = Magick::Image.read(src_path).first
-
+  
   image.change_geometry!("#{w}x#{h}>") { |cols, rows, img|
   
     cols, rows = [cols, rows].map { |i| (i / 2).round * 2 }
@@ -29,6 +30,7 @@ def create_frame(src_path, w, h, dest_path)
   
   }.write(dest_path)
   
+  p 'saved as: ' + dest_path
 end
 
 
@@ -48,7 +50,7 @@ frames.each_with_index{|frame, i|
   begin
     create_frame(src_file_path, FINALIZE_WIDTH, FINALIZE_HEIGHT, framed_file_path);
   rescue
-    create_frame(PATH_NOTFOUND_IMG, FINALIZE_WIDTH, FINALIZE_HEIGHT, framed_file_path);
+    create_frame(PATH_SRC_NOTFOUND_IMG, FINALIZE_WIDTH, FINALIZE_HEIGHT, framed_file_path);
   end
 }
 

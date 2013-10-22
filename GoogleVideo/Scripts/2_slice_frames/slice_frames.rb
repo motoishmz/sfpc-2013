@@ -12,7 +12,9 @@ source = SRC_MOVIE_FILE
 dest = "#{PATH_SRC_FRAMES_DIR}frame-%04d.#{SRC_FRAME_EXTENTION}"
 command = "/usr/local/bin/ffmpeg -i '#{source}' -f image2 -vcodec #{format} '#{dest}'"
 
+p "start slicing: " + source
 `#{command}` # fire
+p "finished slicing."
 
 
 # ---
@@ -30,6 +32,8 @@ frames.each_with_index{|frame, i|
   
   command = "/usr/local/bin/ffmpeg -i #{file_path} -vf scale=#{FINALIZE_WIDTH}:#{FINALIZE_HEIGHT} #{dest_path}"
   
+  p "start resizeing: " + file_path
   `#{command}` # fire
+  p "finished. saved ad: " + dest_path
 }
 

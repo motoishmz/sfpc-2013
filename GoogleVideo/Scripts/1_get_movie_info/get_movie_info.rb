@@ -2,18 +2,6 @@
 # our config file
 require '../conf.rb' 
 
-# gems
-require("FileUtils")
-
-
-# ---
-# create result dir
-FileUtils::mkdir_p(PATH_BASE_DOWNLOADS + TODAY) unless FileTest.exists?(PATH_BASE_DOWNLOADS + TODAY)
-FileUtils::mkdir_p(PATH_DL_RAWFILES_DIR) unless FileTest.exists?(PATH_DL_RAWFILES_DIR)
-FileUtils::mkdir_p(PATH_DL_FRAMED_DIR) unless FileTest.exists?(PATH_DL_FRAMED_DIR)
-FileUtils::mkdir_p(PATH_DL_THUMBS_DIR) unless FileTest.exists?(PATH_DL_THUMBS_DIR)
-
-
 # ---
 # get src movie framerate using ffmpeg
 #   - http://mgng.aws.af.cm/456
