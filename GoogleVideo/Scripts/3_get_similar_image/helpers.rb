@@ -3,9 +3,10 @@ require 'uri'
 require 'open-uri'
 require 'resolv-replace'
 require 'timeout'
+require 'pp'  
+require 'kconv'
 
-
-K_TIMEOUT = 10
+K_TIMEOUT = 15
 K_Google_Sbi = 'http://www.google.com.br/searchbyimage/upload'
 K_User_Agent = '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.94 Safari/537.4"'
 K_Field_Name = 'encoded_image'
@@ -52,7 +53,7 @@ def save_image(url, index)
   p "start downloading: " + url
   
   begin
-    timeout(TIMEOUT) do
+    timeout(K_TIMEOUT) do
       open(dest_file_path, 'wb') do |output|
         open(url) do |data|
           output.write(data.read)
@@ -69,7 +70,8 @@ def save_image(url, index)
       end
   rescue => e
       p "unknown error... saving " + PATH_SRC_NOTFOUND_IMG
-    
+      pp "error reason:"
+      pp e
       open(dest_file_path, 'wb') do |output|
         open(PATH_SRC_NOTFOUND_IMG) do |data|
           output.write(data.read)
@@ -141,15 +143,14 @@ end
 
 def get_image_uris(search_result_html, num_max_images = 1)
   
+
   results = []
   uri_pattern = Regexp.new(/imgurl=(http.+?)(&|%3F)/)
+  
+  # results.push(  )
+  search_result_html.toutf8.scan(uri_pattern).each do |m|
+    results << m[0]
+  end
 
-  search_result_html.each { |line|
-    
-      results << line.scan(uri_pattern) if uri_pattern =~ line
-  }
-
-  results.flatten!
   return results.slice(0, num_max_images)
 end
-

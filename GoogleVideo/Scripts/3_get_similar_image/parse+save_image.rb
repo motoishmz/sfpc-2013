@@ -1,7 +1,7 @@
 
 # our config file
 require '../conf.rb' 
-require 'helpers.rb'
+require './helpers.rb'
 
 # gems
 require 'FileUtils'
@@ -34,7 +34,7 @@ frames.each_with_index{|frame, i|
   
   cur_index = i - num_skip
   
-  p "･゜･*:.｡..:*･'｡. .｡.:*･゜･*"
+  p "====================================================================================="
   p "start processing: " + (cur_index+1).to_s + "/" + (frames.size-num_skip).to_s + ", "+ file_path
   p 'src: ' + file_path
   image_url = get_similar_image_uri(file_path)
