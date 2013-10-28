@@ -12,6 +12,14 @@ K_User_Agent = '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.
 K_Field_Name = 'encoded_image'
 
 
+# ----
+def write_log(str)
+  f = File::open(PATH_DL_LOGS, "a")
+  f.puts str
+  f.close
+end
+
+
 # ---
 # @return String (image url)
 # @params String (original image filePath)
@@ -60,6 +68,10 @@ def save_image(url, index)
         end
       end
     end
+    
+    # write the dest url to our log 
+    write_log(url)
+    
   rescue TimeoutError => e
       p "timeout! saving " + PATH_SRC_NOTFOUND_IMG
     
@@ -68,6 +80,10 @@ def save_image(url, index)
           output.write(data.read)
         end
       end
+    
+    # write the dest url to our log 
+    write_log(LOG_NOT_FOUND)
+    
   rescue => e
       p "unknown error... saving " + PATH_SRC_NOTFOUND_IMG
       pp "error reason:"
@@ -77,6 +93,10 @@ def save_image(url, index)
           output.write(data.read)
         end
       end
+    
+    # write the dest url to our log 
+    write_log(LOG_NOT_FOUND)
+    
   end
 
   p "saved as: " + dest_file_name

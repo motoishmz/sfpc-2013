@@ -13,6 +13,11 @@ FileUtils::mkdir_p(PATH_DL_RAWFILES_DIR) unless FileTest.exists?(PATH_DL_RAWFILE
 FileUtils::mkdir_p(PATH_DL_FRAMED_DIR) unless FileTest.exists?(PATH_DL_FRAMED_DIR)
 FileUtils::mkdir_p(PATH_DL_THUMBS_DIR) unless FileTest.exists?(PATH_DL_THUMBS_DIR)
 
+# logfile
+f = File::open(PATH_DL_LOGS, "w")
+f.puts TODAY
+f.puts "--------------------------"
+f.close
 
 # ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
 # our main code
