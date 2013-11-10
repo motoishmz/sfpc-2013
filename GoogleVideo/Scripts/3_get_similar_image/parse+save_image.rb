@@ -39,6 +39,8 @@ frames.each_with_index{|frame, i|
   
   cur_index = i - num_skip
   
+  # next if cur_index < 22
+  
   p "====================================================================================="
   p "start processing: " + (cur_index+1).to_s + "/" + (frames.size-num_skip).to_s + ", "+ file_path
   p 'src: ' + file_path
