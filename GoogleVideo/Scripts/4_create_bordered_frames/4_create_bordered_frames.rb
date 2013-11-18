@@ -33,6 +33,29 @@ def create_frame(src_path, w, h, dest_path)
   p 'saved as: ' + dest_path
 end
 
+def gen_thumbnails( date )
+	
+	source = "../../Downloads/"+ date +"/framed/"
+	dest   = "../../Downloads/"+ date +"/thumbs/"
+
+	frames = Dir::entries(source)
+
+	frames.each_with_index{|frame, i|
+	  
+	  file_path = source + frame
+	  dest_path = dest + frame
+
+    next if File.ftype(file_path) != "file"
+    next if File.basename(file_path) =~ /^\./
+    
+    command = "/usr/local/bin/ffmpeg -i #{file_path} -vf scale=#{THUMB_MAX_WIDTH}:#{THUMB_MAX_HEIGHT} #{dest_path}"
+    
+    p "start resizeing: " + file_path
+    `#{command}` # fire
+    p "finished. saved ad: " + dest_path
+	}
+
+end
 
 # ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
 # our main code
@@ -53,5 +76,12 @@ frames.each_with_index{|frame, i|
     create_frame(PATH_SRC_NOTFOUND_IMG, FINALIZE_WIDTH, FINALIZE_HEIGHT, framed_file_path);
   end
 }
+
+
+# ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
+# creating thumbmnials
+gen_thumbnails(TODAY)
+
+
 
 

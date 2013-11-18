@@ -4,9 +4,6 @@
 FINALIZE_FRAME_RATE = 5
 FINALIZE_WIDTH = 640
 FINALIZE_HEIGHT = 360
-THUMB_MAX_WIDTH = 100
-THUMB_MAX_HEIGHT = 56
-
 
 
 # ---
@@ -27,7 +24,8 @@ PATH_SRC_NOTFOUND_IMG = PATH_BASE_ASSETS + "notfound.jpg"
 
 # ---
 # ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
-TODAY = Time.now.year.to_s + "-" + Time.now.month.to_s + "-" + Time.now.day.to_s # yyyy-mm-dd
+# TODAY = Time.now.year.to_s + "-" + Time.now.month.to_s + "-" + Time.now.day.to_s # yyyy-mm-dd
+TODAY = "2013-11-16" # yyyy-mm-dd
 SRC_FRAME_EXTENTION = 'png'
 SRC_MOVIE_FILE = PATH_SRC_MOVIES_DIR + "sfpc-20131018.MOV"
 
