@@ -1,7 +1,7 @@
 
 # our config file
-require 'conf.rb' 
-require '3_helpers.rb'
+require "./conf.rb" 
+require './3_helpers.rb'
 
 # gems
 require 'FileUtils'

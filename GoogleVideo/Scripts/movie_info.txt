@@ -9,7 +9,7 @@ ffmpeg version 1.2 Copyright (c) 2000-2013 the FFmpeg developers
   libswscale      2.  2.100 /  2.  2.100
   libswresample   0. 17.102 /  0. 17.102
   libpostproc    52.  2.100 / 52.  2.100
-Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '../../Assets/movie_src/sfpc-20131018.MOV':
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '../Assets/movie_src/sfpc-20131018.MOV':
   Metadata:
     major_brand     : qt  
     minor_version   : 0

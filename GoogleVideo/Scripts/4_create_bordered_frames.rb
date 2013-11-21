@@ -1,6 +1,6 @@
 
 # our config file
-require 'conf.rb'
+require "./conf.rb"
 
 # gems
 require 'rubygems'
@@ -38,16 +38,16 @@ def create_frame(src_path, w, h, dest_path)
 end
 
 def gen_thumbnails( date )
-	
-	source = PATH_BASE_DOWNLOADS+ date +"/framed/"
-	dest   = PATH_BASE_DOWNLOADS+ date +"/thumbs/"
+  
+  source = PATH_BASE_DOWNLOADS+ date +"/framed/"
+  dest   = PATH_BASE_DOWNLOADS+ date +"/thumbs/"
 
-	frames = Dir::entries(source)
+  frames = Dir::entries(source)
 
-	frames.each_with_index{|frame, i|
-	  
-	  file_path = source + frame
-	  dest_path = dest + frame
+  frames.each_with_index{|frame, i|
+    
+    file_path = source + frame
+    dest_path = dest + frame
 
     next if File.ftype(file_path) != "file"
     next if File.basename(file_path) =~ /^\./
@@ -57,7 +57,7 @@ def gen_thumbnails( date )
     p "start resizeing: " + file_path
     `#{command}` # fire
     p "finished. saved ad: " + dest_path
-	}
+  }
 
 end
 
@@ -69,7 +69,7 @@ frames = Dir::entries(PATH_DL_RAWFILES_DIR)
 frames.each_with_index{|frame, i|
   
   src_file_path = PATH_DL_RAWFILES_DIR+frame
-  framed_file_path = PATH_DL_FRAMED_DIR+File.basename(src_file_path, ".*") + OUT_FRAME_EXTENTION
+  framed_file_path = PATH_DL_FRAMED_DIR+File.basename(src_file_path, ".*") + "." + OUT_FRAME_EXTENTION
   
   next if File.ftype(src_file_path) != "file"
   next if File.basename(src_file_path) =~ /^\./

@@ -1,6 +1,6 @@
 
 # our config file
-require 'conf.rb' 
+require "./conf.rb" 
 
 
 # ---

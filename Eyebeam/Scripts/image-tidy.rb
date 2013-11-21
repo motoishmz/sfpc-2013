@@ -21,7 +21,7 @@ def create_frame(src_path, w, h, dest_path)
     border_h += 1 if (border_h < 0)
     border_v += 1 if (border_v < 0)
     
-    img.border(border_h, border_v, 'white')
+    img.border(border_h, border_v, 'transparent')
   
   }.write(dest_path)
   
@@ -32,10 +32,10 @@ end
 
 # ･゜･*:.｡..:*･'｡. .｡.:*･゜･*
 # our main code
-FINALIZE_WIDTH = 1517.58
-FINALIZE_HEIGHT = 1138.18
+FINALIZE_WIDTH = 1517.58 / 4.0
+FINALIZE_HEIGHT = 1138.18 / 4.0
 
-source_dir = "/Users/motoishmz/Documents/Project_Stack/!screenshots/"
+source_dir = "/Users/motoishmz/Documents/Codes/openFrameworks/0080/sfpc-2013/Eyebeam/screenshots/"
 frames = Dir::entries(source_dir)
 
 frames.each_with_index{|frame, i|
@@ -45,7 +45,6 @@ frames.each_with_index{|frame, i|
   
   next if File.ftype(src_file_path) != "file"
   next if File.basename(src_file_path) =~ /^\./
-  next if i < 122
   
   p '----'
   p '[' + i.to_s + ']'
