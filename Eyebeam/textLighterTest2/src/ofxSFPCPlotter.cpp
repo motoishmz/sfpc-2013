@@ -59,60 +59,6 @@ void ofxSFPCPlotter::setup(const string fileName)
 	cout << svg.getWidth() << endl;
 	cout << svg.getHeight() << endl;
 	
-	// load polylines
-	for (int i=0; i<svg.getNumPath(); i++)
-	{
-		ofPath path = svg.getPathAt(i);
-		vector<ofPolyline> outline = path.getOutline();
-		
-		for (int oi=0; oi<outline.size(); oi++)
-		{
-			ofPolyline &pl = outline.at(oi);
-			polylines.push_back(pl);
-		}
-	}
-	
-	
-	// load points
-	int num_suppliment = 11;
-	for (int i=0; i<polylines.size(); i++)
-	{
-		
-		// adding polyline
-		ofPolyline &pl = polylines.at(i);
-		
-		for (int suppl=0; suppl<num_suppliment; suppl++)
-		{
-			float pct = ofMap(suppl, 0, num_suppliment, 0, 1, true);
-			ofPoint sup = pl.getPointAtPercent(pct);
-			points.push_back(sup);
-		}
-		points.push_back(pl.getVertices().back());
-		
-		
-		// move to next polyline
-		if (i+1 != polylines.size())
-		{
-			ofPoint curLineEndPoint = points.back();
-			ofPoint nextLineStartPoint = polylines.at(i+1).getVertices().front();
-			
-			ofPolyline pathToNextLine;
-			pathToNextLine.addVertex(curLineEndPoint);
-			pathToNextLine.addVertex(nextLineStartPoint);
-			supLine.push_back(pathToNextLine);
-			
-			int num_suppliment_to_next = 7;
-
-			for (int suppl=0; suppl<num_suppliment_to_next; suppl++)
-			{
-				float pct = ofMap(suppl, 0, num_suppliment_to_next, 0, 1, true);
-				ofPoint sup = pathToNextLine.getPointAtPercent(pct);
-				supPoints.push_back(sup);
-			}
-		}
-		
-		cout << "----" << endl;
-	}
 
 	
 	// fit paths to canvas

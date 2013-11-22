@@ -9,8 +9,18 @@ public:
 	void draw();
 	
 	void keyPressed(int key);
+	void mousePressed( int x, int y, int button )
+	{
+	}
+	void mouseMoved(int x, int y )
+	{
+	}
+	
+	ofPoint drag_start;
 	
 	ofxSFPCPlotter plotter;
+	ofxSFPCPlotter::Point current;
+	ofxSFPCPlotter::Point next;
 };
 
 
@@ -19,13 +29,7 @@ void ofApp::setup()
 	ofSetFrameRate(60);
 	ofSetVerticalSync(true);
 	
-	ofxSFPCPlotter::Config conf;
-	conf.plotterType = SFPC_PLT_TYPE_FIRSTCLASS;
-	conf.penType = SFPC_PLT_PENTYPE_LED;
-	plotter = ofxSFPCPlotter(conf);
-	plotter.setup("test.svg");
-	
-	
+	plotter.setup("sfpc-pen.svg");
 }
 
 void ofApp::update()
@@ -40,8 +44,16 @@ void ofApp::draw()
 
 void ofApp::keyPressed(int key)
 {
-	if (key == 'g') {
-		plotter.stroke();
+	if (key == OF_KEY_RETURN) {
+		plotter.stepIn();
+	}
+	
+	if (key == 's') {
+		plotter.start();
+	}
+	
+	if (key == 'e') {
+		plotter.end();
 	}
 }
 
