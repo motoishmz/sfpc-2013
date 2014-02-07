@@ -50,18 +50,17 @@ pad_ids.each{|pad_id|
   file_format = "md" # ("txt", "html", or "md")
   endpoint = "/api/1.0/pad/#{pad_id}/content.#{file_format}"
   
-  res = access_token.get(endpoint).body
-  pad_content = res.split("\n");
+  res_body = access_token.get(endpoint).body
   
-  first_line = pad_content.delete_at(0)
+  first_line = res_body.split("\n")[0]
   title = (first_line == nil) ? pad_id : first_line
-  body = pad_content.join("\n")
+  body = res_body
   
   title.sub!(/#\s+/, "") # remove "# "
   title.gsub!(/\//, "_") # remove "/"
   
   dir_name = "sfpc.hackpad.com"
-  file_name = "#{dir_name}/#{title}.#{file_format}"
+  file_name = "#{dir_name}/#{title}-#{pad_id}.#{file_format}"
   
   Dir::mkdir(dir_name) unless FileTest::directory?(dir_name)
   
